@@ -65,7 +65,7 @@ function createCard(cardObject){
 
    username = document.createElement('p');
    username.classList.add('username');
-   username.textContent = cardObject.userame;
+   username.textContent = `@${cardObject.login}`;
    cardInfo.appendChild(username);
 
    const location = document.createElement('p');
@@ -74,17 +74,25 @@ function createCard(cardObject){
 
    const profileContainer = document.createElement('p');
    cardInfo.appendChild(profileContainer);
-   profileLink = document.createElement('a');
+   const profileLink = document.createElement('a');
+   profileLink.textContent = "Profile"
    profileLink.href = cardObject.html_url;
    profileContainer.appendChild(profileLink);
+   console.log('profile link', profileLink);
 
    const followers = document.createElement('p');
-   followers.textContent = cardObject.followers_url;
+   const followersLink = document.createElement('a')
+   followersLink.textContent = "Followers";
+   followersLink.href = cardObject.followers_url;
    cardInfo.appendChild(followers);
+   followers.appendChild(followersLink);
 
    const following = document.createElement('p');
-   following.textContent = cardObject.following_url;
+   const followingLink = document.createElement('a');
+   followingLink.href = cardObject.following_url;
+   followingLink.textContent = "Following";
    cardInfo.appendChild(following);
+   following.appendChild(followingLink);
 
    const bio = document.createElement('p');
    bio.textcontent = cardObject.bio;
