@@ -1,9 +1,11 @@
 // get, adjusted for better reusability by making it an object literal
+const cards = document.querySelector('.cards')
 const user = 'BNMoyers'
-axios.get(`https://api.github.com/users/${user}`)
+axios.get(`https://api.github.com/users/BNMoyers`)
 .then(data => {
   const userArray = data.data
   const userObject = createCard(userArray)
+  cards.appendChild(userObject)
   })
   .catch(error => {
     console.log('Something went wrong in your get statement')
@@ -48,28 +50,49 @@ const followersArray = [];
 
 */
 function createCard(cardObject){
-  //elements
-  const card = document.createElement('div'),
-   pic = document.createElement('img'),
-   cardInfo = document.createElement('div'),
-   realName = document.createElement('h3'),
-   username = document.createElement('p'),
-   profileContainer = document.createElement('p'),
-   profileLink = document.createElement('a'),
+  //card
+  const card = document.createElement('div');
+  card.classList.add('card');
+
+   //pic
+  pic = document.createElement('img');
+  pic.src = cardObject.avatar_url;
+  card.appendChild('pic');
+
+  //card info
+   cardInfo = document.createElement('div');
+   cardInfo.classList.add('card-info');
+   card.appendChild('cardInfo');
+
+   //user info
+
+   realName = document.createElement('h3');
+   realName.classList.add('name');
+   realName.textContent = cardObject.name;
+   cardInfo.appendChild('realName');
+
+   username = document.createElement('p');
+   username.classList.add('username');
+   username.textContent = cardObject.userame;
+   cardInfo.appendChild('username');
+
+   location = document.createElement('p');
+   location.textContent = cardObject.location;
+   cardInfo.appendChild('location');
+
+   profileContainer = document.createElement('p');
+   profileLink = document.createElement('a');
+   profileLink.href = cardObject.html_url;
+   profileContainer.appendChild('profileLink');
+
    followers = document.createElement('p'),
+   followers
+
    following = document.createElement('p'),
    bio = document.createElement('p')
-//links
-  card.appendChild(pic, cardInfo)
-  cardInfo.appendChild(realName, username, profileContainer, followers, following, bio)
-  profileContainer.appendChild(profileLink)
-//classes
-  card.classList.add('card')
-  cardInfo.classList.add('card-info')
-  realName.classList.add('name')
-  username.classList.add('username')
-  //content
-  // pic.src = 
+
+
+  return card;
 }
 /* List of LS Instructors Github username's: 
   tetondan
