@@ -1,15 +1,18 @@
 // get, adjusted for better reusability by making it an object literal
+console.log('here')
 const cards = document.querySelector('.cards');
 const user = 'BNMoyers'
 axios.get(`https://api.github.com/users/${user}`)
 .then(data => {
+  console.log(data);
   const userArray = data.data
   const userObject = createCard(userArray)
   cards.appendChild(userObject)
   })
-  .catch(error => {
-    console.log('Something went wrong in your get statement')
-  })
+  // .catch(error => {
+  //   console.log(error)
+  //   console.log('Something went wrong in your get statement')
+  // })
   
 
 
@@ -55,52 +58,53 @@ function createCard(cardObject){
   card.classList.add('card');
 
    //pic
-  pic = document.createElement('img');
+  const pic = document.createElement('img');
   pic.src = cardObject.avatar_url;
-  card.appendChild('pic');
+  card.appendChild(pic);
 
   //card info
    cardInfo = document.createElement('div');
    cardInfo.classList.add('card-info');
-   card.appendChild('cardInfo');
+   card.appendChild(cardInfo);
 
    //user info
 
    realName = document.createElement('h3');
    realName.classList.add('name');
    realName.textContent = cardObject.name;
-   cardInfo.appendChild('realName');
+   cardInfo.appendChild(realName);
 
    username = document.createElement('p');
    username.classList.add('username');
    username.textContent = cardObject.userame;
-   cardInfo.appendChild('username');
+   cardInfo.appendChild(username);
 
-   location = document.createElement('p');
+   const location = document.createElement('p');
    location.textContent = cardObject.location;
-   cardInfo.appendChild('location');
+   cardInfo.appendChild(location);
 
-   profileContainer = document.createElement('p');
-   cardInfo.appendChild('profileContainer');
+   const profileContainer = document.createElement('p');
+   cardInfo.appendChild(profileContainer);
    profileLink = document.createElement('a');
    profileLink.href = cardObject.html_url;
-   profileContainer.appendChild('profileLink');
+   profileContainer.appendChild(profileLink);
 
-   followers = document.createElement('p');
+   const followers = document.createElement('p');
    followers.textContent = cardObject.followers_url;
-   cardInfo.appendChild('followers');
+   cardInfo.appendChild(followers);
 
-   following = document.createElement('p');
+   const following = document.createElement('p');
    following.textContent = cardObject.following_url;
-   cardInfo.appendChild('following');
+   cardInfo.appendChild(following);
 
-   bio = document.createElement('p');
+   const bio = document.createElement('p');
    bio.textcontent = cardObject.bio;
-   cardInfo.appendChild('bio');
+   cardInfo.appendChild(bio);
 
    return card;
   
 }
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
