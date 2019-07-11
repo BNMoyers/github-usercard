@@ -58,7 +58,16 @@ function createCard(cardObject){
   const following = document.createElement('p')
   const bio = document.createElement('p')
 
-  
+  card.appendChild(pic)
+  card.appendChild(cardInfo)
+  cardInfo.appendChild(realName)
+  cardInfo.appendChild(username)
+  cardInfo.appendChild(profileContainer)
+  profileContainer.appendChild(profileLink)
+  cardInfo.appendChild(followers)
+  cardInfo.appendChild(following)
+  cardInfo.appendchild(bio)
+
 
 }
 /* List of LS Instructors Github username's: 
