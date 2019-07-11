@@ -1,7 +1,7 @@
 // get, adjusted for better reusability by making it an object literal
-const cards = document.querySelector('.cards')
+const cards = document.querySelector('.cards');
 const user = 'BNMoyers'
-axios.get(`https://api.github.com/users/BNMoyers`)
+axios.get(`https://api.github.com/users/${user}`)
 .then(data => {
   const userArray = data.data
   const userObject = createCard(userArray)
@@ -81,18 +81,25 @@ function createCard(cardObject){
    cardInfo.appendChild('location');
 
    profileContainer = document.createElement('p');
+   cardInfo.appendChild('profileContainer');
    profileLink = document.createElement('a');
    profileLink.href = cardObject.html_url;
    profileContainer.appendChild('profileLink');
 
-   followers = document.createElement('p'),
-   followers
+   followers = document.createElement('p');
+   followers.textContent = cardObject.followers_url;
+   cardInfo.appendChild('followers');
 
-   following = document.createElement('p'),
-   bio = document.createElement('p')
+   following = document.createElement('p');
+   following.textContent = cardObject.following_url;
+   cardInfo.appendChild('following');
 
+   bio = document.createElement('p');
+   bio.textcontent = cardObject.bio;
+   cardInfo.appendChild('bio');
 
-  return card;
+   return card;
+  
 }
 /* List of LS Instructors Github username's: 
   tetondan
