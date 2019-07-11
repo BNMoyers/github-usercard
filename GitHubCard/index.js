@@ -52,18 +52,18 @@ function createCard(cardObject){
   card.appendChild(pic);
 
   //card info
-   cardInfo = document.createElement('div');
+   const cardInfo = document.createElement('div');
    cardInfo.classList.add('card-info');
    card.appendChild(cardInfo);
 
    //user info
 
-   realName = document.createElement('h3');
+   const realName = document.createElement('h3');
    realName.classList.add('name');
    realName.textContent = cardObject.name;
    cardInfo.appendChild(realName);
 
-   username = document.createElement('p');
+   const username = document.createElement('p');
    username.classList.add('username');
    username.textContent = `@${cardObject.login}`;
    cardInfo.appendChild(username);
@@ -95,7 +95,7 @@ function createCard(cardObject){
    following.appendChild(followingLink);
 
    const bio = document.createElement('p');
-   bio.textcontent = cardObject.bio;
+   bio.innerText = cardObject.bio;
    cardInfo.appendChild(bio);
 
    return card;
