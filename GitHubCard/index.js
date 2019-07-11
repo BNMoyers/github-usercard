@@ -68,7 +68,10 @@ function createCard(cardObject){
   cardInfo.appendChild(following)
   cardInfo.appendchild(bio)
 
-
+  card.classList.add('card')
+  cardInfo.classList.add('card-info')
+  realName.classList.add('name')
+  username.classList.add('username')
 }
 /* List of LS Instructors Github username's: 
   tetondan
