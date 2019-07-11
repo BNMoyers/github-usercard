@@ -1,7 +1,8 @@
 // get, adjusted for better reusability by making it an object literal
 console.log('here')
 const cards = document.querySelector('.cards');
-const user = 'BNMoyers'
+let user = 'BNMoyers'
+
 axios.get(`https://api.github.com/users/${user}`)
 .then(data => {
   console.log(data);
@@ -9,17 +10,10 @@ axios.get(`https://api.github.com/users/${user}`)
   const userObject = createCard(userArray)
   cards.appendChild(userObject)
   })
-  // .catch(error => {
-  //   console.log(error)
-  //   console.log('Something went wrong in your get statement')
-  // })
-  
+  .catch(error => {
+    console.log('Something went wrong in your get statement')
+  })
 
-
-
-/* Step 4: Pass the data received from Github into your function, 
-           create a new component and add it to the DOM as a child of .cards
-*/
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
@@ -31,27 +25,22 @@ axios.get(`https://api.github.com/users/${user}`)
           user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+const followersArray = ['tetondan','dustinmyers','justsml','luishrd','bigknell'];
+followersArray.forEach(follower => {
+  axios.get(`https://api.github.com/users/${follower}`)
+  .then(data => {
+    console.log(data);
+    const userArray = data.data
+    const userObject = createCard(userArray)
+    cards.appendChild(userObject)
+    })
+    .catch(error => {
+      console.log('Something went wrong in your get statement')
+    })
+})
 
-/* Step 3: Create a function that accepts a single object as its only argument,
-          Using DOM methods and properties, create a component that will return the following DOM element:
 
-<div class="card">
-  <img src={image url of user} />
-  <div class="card-info">
-    <h3 class="name">{users name}</h3>
-    <p class="username">{users user name}</p>
-    <p>Location: {users location}</p>
-    <p>Profile:  
-      <a href={address to users github page}>{address to users github page}</a>
-    </p>
-    <p>Followers: {users followers count}</p>
-    <p>Following: {users following count}</p>
-    <p>Bio: {users bio}</p>
-  </div>
-</div>
-
-*/
+// */
 function createCard(cardObject){
   //card
   const card = document.createElement('div');
