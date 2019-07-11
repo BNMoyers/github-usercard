@@ -23,12 +23,12 @@ In this project we are going to be accessing the GitHub API and building a socia
 * [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
 * [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 * [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
+* [x] Push commits: git push origin `<firstName-lastName>`.
 
 **Follow these steps for completing your project.**
 
-* [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-* [ ] Add your project manager as a reviewer on the pull-request
+* [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
+* [x] Add your project manager as a reviewer on the pull-request
 * [ ] Your project manager will count the project as complete by merging the branch back into master.
 
 ### Preprocessor Setup
@@ -37,7 +37,7 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 ### Part 1: Requesting Data from the GitHub API
 * [x] Include the script element linking the `axios` library in your HTML. If you do not remember the code you can find it here: https://github.com/axios/axios
-* [ ] Follow the instructions found in the GitHubCard/index.js file to request data from the GitHub API.
+* [x] Follow the instructions found in the GitHubCard/index.js file to request data from the GitHub API.
 
 ### Part 2: Create the component function
 
